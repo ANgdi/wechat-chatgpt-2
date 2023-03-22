@@ -35,7 +35,7 @@ async function chatgpt(username:string,message: string): Promise<string> {
     return "请再问我一遍吧"
   }
 }
-
+  
 /**
  * Get image from Dall·E
  * @param username
