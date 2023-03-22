@@ -6,14 +6,17 @@ import {
 } from "openai";
 import DBUtils from "./data.js";
 import fs from "fs";
+import {config} from "./config.js";
+
+
 
 const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: config.env.OPENAI_API_KEY,
 
 });
 const openai = new OpenAIApi(configuration);
-const model = process.env.MODEL;
-const temperature = process.env.TEMPERATURE;
+const model = config.env.MODEL;
+const temperature = config.env.TEMPERATURE;
 
 /**
  * Get completion from OpenAI
