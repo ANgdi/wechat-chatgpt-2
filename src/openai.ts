@@ -11,12 +11,12 @@ import {config} from "./config.js";
 
 
 const configuration = new Configuration({
-  apiKey: config.OPENAI_API_KEY,
+  apiKey: config.openai_api_key,
 
 });
 const openai = new OpenAIApi(configuration);
-const model = config.MODEL;
-const temperature = config.TEMPERATURE;
+const model = config.model;
+const temperature = config.temperature;
 
 /**
  * Get completion from OpenAI
