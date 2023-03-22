@@ -12,6 +12,8 @@ const configuration = new Configuration({
 
 });
 const openai = new OpenAIApi(configuration);
+const model = process.env.MODEL;
+const temperature = process.env.TEMPERATURE;
 
 /**
  * Get completion from OpenAI
@@ -22,8 +24,7 @@ async function chatgpt(username:string,message: string): Promise<string> {
   // 先将用户输入的消息添加到数据库中
   DBUtils.addUserMessage(username, message);
   const messages = DBUtils.getChatMessage(username);
-  const model = process.env.MODEL || "gpt-3.5-turbo-0301";
-  const temperature = process.env.TEMPERATURE ? parseFloat(process.env.TEMPERATURE) : 0.4;
+
   const response = await openai.createChatCompletion({
     model: model,
     messages: messages,
